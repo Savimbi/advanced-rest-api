@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.dudosa.restfullapi'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '15'
 
 swaggerSources {
 	def typeMappings = 'URI=URI'
@@ -38,7 +38,9 @@ repositories {
 
 dependencies {
 	implementation 'org.projectlombok:lombok:1.18.18'
-
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.flywaydb:flyway-core'
+	runtimeOnly 'com.h2database:h2'
 	// OpenAPI Starts
 	swaggerCodegen 'org.openapitools:openapi-generator-cli:4.3.1'
 	compileOnly 'io.swagger:swagger-annotations:1.6.2'
