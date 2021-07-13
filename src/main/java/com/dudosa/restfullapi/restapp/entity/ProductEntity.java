@@ -1,8 +1,5 @@
 package com.dudosa.restfullapi.restapp.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,9 +8,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@Setter
-@Getter
 @Entity
 @Table(name = "product")
 public class ProductEntity {
@@ -49,4 +43,89 @@ public class ProductEntity {
 
     @OneToMany(mappedBy = "product")
     private List<ItemEntity> items;
+
+    public ProductEntity(UUID id, @NotNull(message = "Product name is required.") String name,
+                         String description, BigDecimal price, int count, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.count = count;
+        this.imageUrl = imageUrl;
+    }
+
+    public ProductEntity() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public ProductEntity setId(UUID id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ProductEntity setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ProductEntity setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public ProductEntity setPrice(BigDecimal price) {
+        this.price = price;
+        return this;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public ProductEntity setCount(int count) {
+        this.count = count;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public ProductEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public List<TagEntity> getTags() {
+        return tags;
+    }
+
+    public ProductEntity setTags(List<TagEntity> tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    public List<ItemEntity> getItem() {
+        return items;
+    }
+
+    public ProductEntity setItem(List<ItemEntity> item) {
+        this.items = item;
+        return this;
+    }
 }

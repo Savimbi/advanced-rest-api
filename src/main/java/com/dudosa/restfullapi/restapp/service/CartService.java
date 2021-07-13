@@ -1,6 +1,7 @@
 package com.dudosa.restfullapi.restapp.service;
 
 import com.dudosa.restfullapi.restapp.entity.CartEntity;
+import com.dudosa.restfullapi.restapp.exceptions.CustomerNotFoundException;
 import com.packt.modern.api.model.Item;
 
 import javax.validation.Valid;
@@ -11,7 +12,7 @@ public interface CartService {
     public List<Item> addOrReplaceItemsByCustomerId(String customerId, @Valid Item item);
     public void deleteCart(String customerId);
     public void deleteItemFromCart(String customerId, String itemId);
-    public CartEntity getCartByCustomerId(String customerId);
+    public CartEntity getCartByCustomerId(String customerId) throws CustomerNotFoundException;
     public List<Item> getCartItemsByCustomerId(String customerId);
     public Item getCartItemsId(String customerId, String itemId);
 
