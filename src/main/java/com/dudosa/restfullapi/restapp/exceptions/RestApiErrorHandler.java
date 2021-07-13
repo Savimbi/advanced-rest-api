@@ -1,6 +1,5 @@
 package com.dudosa.restfullapi.restapp.exceptions;
 
-import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,8 @@ public class RestApiErrorHandler {
     public ResponseEntity<Error> handlerHttpMediaTypeNotSupportedException(HttpServletRequest request,
                                                                            HttpMediaTypeNotSupportedException ex,
                                                                            Locale locale){
-        Error error = ErrorUtils.createError(ErrorCode.HTTP_MEDIA_TYPE_NOT_SUPPORTED.getErrMsgKey(),
-               ErrorCode.HTTP_MEDIA_TYPE_NOT_SUPPORTED.getErrorCode(),
+        Error error = ErrorUtils.createError(ErrorCode.HTTP_MEDIATYPE_NOT_SUPPORTED.getErrMsgKey(),
+               ErrorCode.HTTP_MEDIATYPE_NOT_SUPPORTED.getErrorCode(),
                 HttpStatus.UNSUPPORTED_MEDIA_TYPE.value())
                 .setUrl(request.getRequestURL().toString())
                 .setReqMessage(request.getMethod());
